@@ -31,6 +31,10 @@ function CommentsList({ selectedItem, onCommentAdd }: ICommentsList) {
     }
   };
 
+  const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCommentColor(e.target.value);
+  };
+
   return (
     <SectionContainer title={title}>
       <SelectedItem />
@@ -51,6 +55,13 @@ function CommentsList({ selectedItem, onCommentAdd }: ICommentsList) {
       </ul>
 
       <form onSubmit={handleCommentAdd} className={styles["form"]}>
+        <input
+          type="color"
+          aria-label="Select comment color"
+          className={styles["input-color"]}
+          onChange={handleColorChange}
+          value={commentColor}
+        />
         <textarea
           placeholder="Type comment here ..."
           aria-label="Enter comment name"
