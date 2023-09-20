@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
-import { Item } from "../types/item.types";
-import SectionContainer from "./SectionContainer/SectionContainer";
+import { Item } from "../../types/item.types";
+import SectionContainer from "../SectionContainer/SectionContainer";
+import styles from "./ItemList.module.css";
 
 type IItemsList = {
   items: Item[];
@@ -32,31 +33,41 @@ function ItemList({
 
   return (
     <SectionContainer title="Items">
-      <form onSubmit={handleAddItem}>
+      <form onSubmit={handleAddItem} className={styles["form"]}>
         <input
           type="text"
           placeholder="Type name here ..."
           aria-label="Enter item name"
+          className={styles.input}
           value={itemName}
           required
           onChange={(e) => setItemName(e.target.value)}
         />
-        <input type="submit" aria-label="Add item to list" value="Add new" />
+        <input
+          type="submit"
+          aria-label="Add item to list"
+          value="Add new"
+          className={styles["add-button"]}
+        />
       </form>
 
-      <ul>
+      <ul className={styles["list"]}>
         {items.map((item) => (
           <li
             key={item.id}
             onClick={() => onItemSelect(item)}
-            className={item.id === selectedItemId ? "selected" : ""}
+            className={`${styles["list-item"]} ${
+              item.id === selectedItemId && styles["selected"]
+            }`}
           >
-            <div>
-              <p>{item.id}</p>
-              <p>{item.comments.length}</p>
-            </div>
-
-            <button onClick={() => onItemDelete(item.id)}>Delete</button>
+            <p>{item.name}</p>
+            <p className={styles["comments"]}>{item.comments.length}</p>
+            <button
+              onClick={() => onItemDelete(item.id)}
+              className={styles["delete-button"]}
+            >
+              Delete
+            </button>
           </li>
         ))}
       </ul>

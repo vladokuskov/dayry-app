@@ -1,5 +1,5 @@
-import CommentsList from "./components/CommentsList";
-import ItemList from "./components/ItemList";
+import CommentsList from "./components/CommentsList/CommentsList";
+import ItemList from "./components/ItemList/ItemList";
 import "./App.css";
 import { Item } from "./types/item.types";
 import { Comment } from "./types/comment.types";
