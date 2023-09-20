@@ -27,7 +27,7 @@
 
 .add-button {
   padding: 0.5rem;
-  background-color: rgb(74, 97, 223);
+  background-color: rgb(65, 206, 72);
   border: none;
   border-radius: 8px;
   color: white;
@@ -36,10 +36,11 @@
   height: 2.3rem;
   cursor: pointer;
   transition: 0.2s all;
+  align-self: flex-end;
 }
 
 .add-button:hover {
-  background-color: rgb(63, 83, 196);
+  background-color: rgb(54, 177, 61);
 }
 
 .list {

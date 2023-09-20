@@ -55,13 +55,17 @@ function ItemList({
         {items.map((item) => (
           <li
             key={item.id}
-            onClick={() => onItemSelect(item)}
             className={`${styles["list-item"]} ${
               item.id === selectedItemId && styles["selected"]
             }`}
           >
-            <p>{item.name}</p>
-            <p className={styles["comments"]}>{item.comments.length}</p>
+            <div
+              onClick={() => onItemSelect(item)}
+              className={styles["list-item-content"]}
+            >
+              <span>{item.name}</span>
+              <span className={styles["comments"]}>{item.comments.length}</span>
+            </div>
             <button
               onClick={() => onItemDelete(item.id)}
               className={styles["delete-button"]}
